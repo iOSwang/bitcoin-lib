@@ -276,7 +276,6 @@ func (t *Transaction) unpackVin(reader io.Reader) (*[]TxIn, error) {
 		return nil, err
 	}
 	vin = make([]TxIn, ui64, ui64)
-	fmt.Printf("\nParsing Output[%d]:\n", i)
 	for i := 0; i < int(ui64); i++ {
 		var v TxIn
 		fmt.Printf("\nParsing Output[%d]:\n", i)
@@ -285,7 +284,6 @@ func (t *Transaction) unpackVin(reader io.Reader) (*[]TxIn, error) {
 		    fmt.Printf("Failed to parse Output[%d]: %v\n", i, err)
 		    return nil, err
 		}
-		fmt.Printf("Output[%d] value: %d, scriptPubKey scriptPubKey: %x\n", i, v.Value, v.ScriptPubKey)
 		vin[i] = v
 	}
 	return &vin, nil
