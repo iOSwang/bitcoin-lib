@@ -272,6 +272,7 @@ func (t Transaction) CalcTrxId() (bigint.Uint256, error) {
 func (t *Transaction) unpackVin(reader io.Reader) (*[]TxIn, error) {
 	var vin []TxIn
 	ui64, err := serialize.UnPackCompactSize(reader)
+	fmt.Printf("Parsed vout count: %d\n", ui64)
 	if err != nil {
 		return nil, err
 	}
