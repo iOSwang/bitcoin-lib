@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/hex"
 	"errors"
+	"fmt"
 	"github.com/mutalisk999/bitcoin-lib/src/bigint"
 	"github.com/mutalisk999/bitcoin-lib/src/blob"
 	"github.com/mutalisk999/bitcoin-lib/src/script"
@@ -298,8 +299,11 @@ func (t *Transaction) unpackVout(reader io.Reader) (*[]TxOut, error) {
 	vout = make([]TxOut, ui64, ui64)
 	for i := 0; i < int(ui64); i++ {
 		var v TxOut
+		fmt.Printf("\unpackVout Output[%d]:\n", i)
+
 		err = v.UnPack(reader)
 		if err != nil {
+			fmt.Printf("\unpackVout Output[%s]:\n", err)
 			return nil, err
 		}
 		vout[i] = v
