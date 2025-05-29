@@ -296,6 +296,7 @@ func (t *Transaction) unpackVout(reader io.Reader) (*[]TxOut, error) {
 	if err != nil {
 		return nil, err
 	}
+	fmt.Println("unpackVout Output count:",ui64 )
 	vout = make([]TxOut, ui64, ui64)
 	for i := 0; i < int(ui64); i++ {
 		var v TxOut
@@ -433,6 +434,4 @@ func (t *Transaction) GetTrxPrintAble() TrxPrintAble {
 		trxPrintAble.Vout[i] = voutPrintAble
 	}
 	trxPrintAble.Version = t.Version
-	trxPrintAble.LockTime = t.LockTime
-	return trxPrintAble
-}
+	trxPrintAble.Lo
