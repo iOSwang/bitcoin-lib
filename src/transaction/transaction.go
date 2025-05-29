@@ -11,7 +11,6 @@ import (
 	"github.com/mutalisk999/bitcoin-lib/src/serialize"
 	"github.com/mutalisk999/bitcoin-lib/src/utility"
 	"io"
-	"fmt"
 	"strings"
 )
 
